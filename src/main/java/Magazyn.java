@@ -9,10 +9,22 @@ public class Magazyn {
         pracownicy.add(pracownik);
     }
 
+    void dodajProdukt (Produkt produkt) {
+        produkty.add(produkt);
+    }
+
     void usunPracownika (String pesel) {
         for (Pracownik p: pracownicy) {
             if (p.getPesel().equals(pesel)) {
                 pracownicy.remove(p);
+            }
+        }
+    }
+
+    void usunProdukt (String nazwa) {
+        for (Produkt p: produkty) {
+            if (p.getNazwa().equals(nazwa)) {
+                produkty.remove(p);
             }
         }
     }
@@ -26,8 +38,21 @@ public class Magazyn {
         } return zwracany;
     }
 
-    List<Pracownik> wypiszWszystkich(){
+    Produkt wypiszProdukt (String nazwa) {
+        Produkt zwracany = null;
+        for (Produkt p: produkty) {
+            if (p.getNazwa().equals(nazwa)) {
+                zwracany = p;
+            }
+        } return zwracany;
+    }
+
+    List<Pracownik> wypiszWszystkichPracownikow(){
         return pracownicy;
+    }
+
+    List<Produkt> wypiszWszystkieProdukty(){
+        return produkty;
     }
 
     public Magazyn(List<Pracownik> pracownicy, List<Produkt> produkty) {
